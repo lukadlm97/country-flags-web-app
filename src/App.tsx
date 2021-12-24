@@ -1,15 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './mysass.scss'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div>
+      <h1>Hello Style!</h1>
+      <p>Add a little style!.</p>
+      </div>
+      </header>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -18,7 +19,6 @@ function App() {
         >
           Learn React
         </a>
-      </header>
     </div>
   );
 }
