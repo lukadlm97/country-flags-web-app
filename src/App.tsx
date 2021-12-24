@@ -1,25 +1,68 @@
 import React from 'react';
-import logo from './logo.svg';
-import './mysass.scss'
+
+import {createTheme} from '@material-ui/core'
+import {ThemeProvider} from '@material-ui/styles'
+
+import Sidebar from './components/Sidebar/Sidebar'
+import Appbar from './components/Appbar/Appbar'
+//base style
+import './styles/_base.scss'
+
+import Navigator from './Navigator'
+
+
+//create material UI theme 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#f2aa26',
+      dark: '#f09c01',
+    },
+    secondary: {
+      main: '#11cb5f',
+    },
+    text: {
+      primary: '#373585',
+      secondary: '#a4a6b3',
+    },
+    background: {
+      default: '#f7f8fc',
+    },
+  },
+  typography: {
+    fontFamily: 'Poppins, sans- serif',
+    fontWeightBold: 700,
+    fontWeightMedium: 600,
+    fontWeightRegular: 400,
+    htmlFontSize: 8,
+  },
+})
 
 function App() {
+
+
+  const [drawerState, setDrawerState] = React.useState(false)
+
+  
+  //handle drawer state
+    const handleDrawerState=(state:boolean)=>{
+        setDrawerState(state)
+    }
+
+
+
+
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
-      <header className="App-header">
-      <div>
-      <h1>Hello Style!</h1>
-      <p>Add a little style!.</p>
-      </div>
-      </header>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       {/* appbar component  */}
+       <Appbar onClick={handleDrawerState} drawerState={drawerState}/>
+
+      {/* Sidebar  */}             
+      <Sidebar onClick={handleDrawerState} drawerState={drawerState}/>
+      <Navigator />
     </div>
+    </ThemeProvider>
   );
 }
 
