@@ -4,4 +4,5 @@ Main purpose of this project is to discovering potental of using Redux and Scss 
 
 ## 24.12.'21
 Init commit and installation
+
 Finished all application parts from tutorial
